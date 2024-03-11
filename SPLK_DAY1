@@ -78,3 +78,6 @@ index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fiel
 Rex :-
 
 index=main sourcetype=txt | rex field=_raw "From:\s+<(?P<From_Email_ID>.*)>\s+To" | table From_Email_ID
+
+| makeresults | eval text="vk;search;saved_search" | rex field=text "(?P<name>.*);(?P<app_name>.*);(?P<saved_search_name>.*)"
+
