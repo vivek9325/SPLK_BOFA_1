@@ -71,5 +71,7 @@ Addtotals :-
 
 index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fields - percent| addtotals
 
+index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fields - percent| addtotals | addcoltotals label=sum labelfield=field1
+
 ====================================================================================================
 
