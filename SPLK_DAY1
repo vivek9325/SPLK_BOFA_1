@@ -23,6 +23,8 @@ Avg
 
 index=_internal | stats avg(bytes) as total_bytes by sourcetype | fillnull value="NULL" total_bytes
 
+index=_internal | stats avg(bytes) as avg_byte, sum(bytes) as total_bytes by sourcetype | fillnull value="NULL" total_bytes ,avg_byte
+
 List
 
 
