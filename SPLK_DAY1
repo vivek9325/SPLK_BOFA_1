@@ -27,10 +27,10 @@ index=_internal | stats avg(bytes) as avg_byte, sum(bytes) as total_bytes by sou
 
 List
 
-
+index=_internal |stats list(source) by sourcetype
 
 Values
 
-
+index=_internal |stats values(source) by sourcetype
 
 ====================================================================================================
