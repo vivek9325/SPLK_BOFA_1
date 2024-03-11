@@ -34,3 +34,12 @@ Values
 index=_internal |stats values(source) by sourcetype
 
 ====================================================================================================
+
+Eval
+
+Calculation --- 
+
+index=_internal sourcetype=splunkd_ui_access | eval kb = round(bytes/1024,3)." KB" | table bytes, kb
+
+If-Else Statement
+
