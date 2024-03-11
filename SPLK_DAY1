@@ -3,5 +3,29 @@ Table , Rename and Sort
 
 index=main source="Sample_tickets.csv" | table ticket_number, severity, current_ticket_state | rename ticket_number as incident_number, current_ticket_state as "Ticket State" | sort  "Ticket State"
 
-=================================================================================================================================================================================================================
+========================================================================================================================================================================================================
 
+Stats
+
+Count Function
+
+index=main source="Sample_tickets.csv" | stats count as total by current_ticket_state
+
+Distinct count
+
+
+Sum
+
+
+Avg
+
+
+List
+
+
+
+Values
+
+
+
+====================================================================================================
