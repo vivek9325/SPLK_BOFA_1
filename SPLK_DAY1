@@ -65,3 +65,11 @@ AddColTotal :-
 
 index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fields - percent| addcoltotals label=total labelfield=current_ticket_state
 
+index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fields - percent| addcoltotals label=total labelfield=current_ticket_state | search current_ticket_state="total"
+
+Addtotals :-
+
+index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fields - percent| addtotals
+
+====================================================================================================
+
