@@ -41,5 +41,8 @@ Calculation ---
 
 index=_internal sourcetype=splunkd_ui_access | eval kb = round(bytes/1024,3)." KB" | table bytes, kb
 
-If-Else Statement
+If-Else Statement :-
 
+index=main source="Sample_tickets.csv" | table ticket_number, severity, current_ticket_state | eval ticket_status = if(current_ticket_state="Closed" OR current_ticket_state="Resolved", "Completed", "Incomplete")
+
+Case :- 
