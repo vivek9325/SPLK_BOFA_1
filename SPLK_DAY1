@@ -58,3 +58,10 @@ index=main source="Sample_tickets.csv" | table ticket_number, severity, current_
 Rare :- 
 
 index=main source="Sample_tickets.csv" | table ticket_number, severity, current_ticket_state | rare limit=3 current_ticket_state
+
+====================================================================================================
+
+AddColTotal :- 
+
+index=main source="Sample_tickets.csv" | top limit=3 current_ticket_state | fields - percent| addcoltotals label=total labelfield=current_ticket_state
+
