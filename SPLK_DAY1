@@ -49,3 +49,12 @@ Case :-
 
 index=main source="Sample_tickets.csv" | table ticket_number, severity, current_ticket_state | eval ticket_status = if(current_ticket_state="Closed" OR current_ticket_state="Resolved", "Completed", "Incomplete") | eval priority = case(severity=1, "Critical", severity=2, "High", severity="3", "Normal", 1=1, "Low")
 
+====================================================================================================
+
+Top :-
+
+index=main source="Sample_tickets.csv" | table ticket_number, severity, current_ticket_state | top limit=3 current_ticket_state
+
+Rare :- 
+
+index=main source="Sample_tickets.csv" | table ticket_number, severity, current_ticket_state | rare limit=3 current_ticket_state
