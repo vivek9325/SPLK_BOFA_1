@@ -5,7 +5,7 @@ index=main source="Sample_tickets.csv" | table ticket_number, severity, current_
 
 ========================================================================================================================================================================================================
 
-Stats
+Stats & FillNull
 
 Count Function
 
@@ -13,12 +13,15 @@ index=main source="Sample_tickets.csv" | stats count as total by current_ticket_
 
 Distinct count
 
+index=main source="Sample_tickets.csv" | stats dc(current_ticket_state) as dc_ticket_state
 
 Sum
 
+index=_internal | stats sum(bytes) as total_bytes by sourcetype | fillnull value="NULL" total_bytes
 
 Avg
 
+index=_internal | stats avg(bytes) as total_bytes by sourcetype | fillnull value="NULL" total_bytes
 
 List
 
