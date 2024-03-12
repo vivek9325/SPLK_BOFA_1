@@ -70,3 +70,16 @@ tstats
 | tstats count where index=_internal sourcetype IN (splunkd, splunkd_ui_access) by sourcetype
 
 | tstats count where index=_internal sourcetype IN (splunkd, splunkd_ui_access) by _time span=2d
+
+====================================================================================================
+
+append -
+
+index=main source="Sample_tickets.csv" | stats count by severity | append[search index=main source="power_usage_2016_to_2020.csv" | stats avg("Value _kWh")]
+
+appendcols - 
+
+index=main source="Sample_tickets.csv" | stats count by severity | appendcols[search index=main source="power_usage_2016_to_2020.csv" | stats avg("Value _kWh")]
+
+appendpipe -
+
