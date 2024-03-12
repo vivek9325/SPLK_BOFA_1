@@ -20,9 +20,17 @@ Regex
 index=main sourcetype=txt | regex _raw = "From:\s+<[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
 
 index=main sourcetype=txt |regex _raw = "From:\s+<[[:alnum:]]+\_[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
+====================================================================================================
 
-XYSeries ----
+XYSeries and untable command ----
 
 index=main source="Sample_tickets.csv" | stats count by current_ticket_state, severity | xyseries current_ticket_state severity count
 
 index=main source="Sample_tickets.csv" | stats count by current_ticket_state, severity | xyseries current_ticket_state severity count | untable current_ticket_state severity count
+
+====================================================================================================
+
+transaction ----
+
+index=transact sourcetype=access_* | transaction JSESSIONID clientip startswith="view" endswith="purchase" | highlight "action"
+
