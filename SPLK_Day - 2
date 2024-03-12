@@ -64,3 +64,7 @@ index=main source="weather_2016_2020_daily.csv" | table Temp_avg Dew_avg Date _t
 
 index=main source="weather_2016_2020_daily.csv" | table Temp_avg, Dew_avg, Date, _time | eval date_epoc = strptime(Date, "%Y-%m-%d") | eval _time = date_epoc | timechart span=1mon avg(Temp_avg) as avg_temp, avg(Dew_avg) as avg_dew | predict avg_temp avg_dew algorithm=BiLL future_timespan=30
 
+===================================================================================================
+tstats
+
+| tstats count where index=_internal sourcetype IN (splunkd, splunkd_ui_access) by sourcetype
