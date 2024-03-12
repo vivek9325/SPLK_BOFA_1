@@ -42,4 +42,9 @@ maxspan -
 
 index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxspan=4s | highlight "action" "POST /cart.do?action"
 
+maxevent - 
+
+index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxspan=5s maxevents=4 | highlight "action" "POST /cart.do?action"
+
+
 
