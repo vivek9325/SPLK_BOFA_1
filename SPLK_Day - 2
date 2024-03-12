@@ -109,3 +109,14 @@ source="data_selfjoin.csv" host="ip-172-31-56-191.ec2.internal" index="main_self
 
 ====================================================================================================
 
+XMLKV 
+
+| makeresults | eval data_xml = "
+<games>
+<game>
+<name>Combat Games</name>
+<category>competitive</category>
+</game>
+</games>"
+| xmlkv data_xml
+
