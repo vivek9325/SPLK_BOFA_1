@@ -106,3 +106,6 @@ index=main source="sample_tickets.csv" | table ticket_number, severity, current_
 SELF - 
 
 source="data_selfjoin.csv" host="ip-172-31-56-191.ec2.internal" index="main_self" sourcetype="csv" | table employee_id, manager_id, name, title | sort employee_id | selfjoin title
+
+====================================================================================================
+
