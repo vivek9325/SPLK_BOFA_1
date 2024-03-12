@@ -102,3 +102,7 @@ index=main source="sample_tickets.csv" | table ticket_number, severity, current_
 Map - 
 
 index=main source="sample_tickets.csv" | table ticket_number, severity, current_ticket_state | map maxsearches=100 search="search index=main_join ticket_number=$ticket_number$| table ticket_number, time_taken | eval severity=$severity$, ticket_state=$current_ticket_state$"
+
+SELF - 
+
+source="data_selfjoin.csv" host="ip-172-31-56-191.ec2.internal" index="main_self" sourcetype="csv" | table employee_id, manager_id, name, title | sort employee_id | selfjoin title
