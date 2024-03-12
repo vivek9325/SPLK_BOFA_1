@@ -5,3 +5,6 @@ Rex ----
 Masking
 
 |makeresults | eval credit_card_number="1234-5678-9101-1213" | rex field=credit_card_number mode=sed "s/(\d{4}-){3}/XXXX-XXXX-XXXX-/g"
+
+
+|makeresults | eval credit_card_number="1234-5678-9101-1213" | rex field=credit_card_number mode=sed "y/1234/XXXX/"
