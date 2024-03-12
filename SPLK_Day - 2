@@ -127,3 +127,14 @@ index=main_xml | xpath outfield=country "//country/@name"
 index=main_xml | xpath outfield=direction "//country/neighbor/@direction"
 
 index=main_xml | xpath outfield=country "//country[@name='Singapore']/@name"
+
+====================================================================================================
+
+Streamstats - 
+
+|makeresults count=4 | streamstats count
+
+eventstats -
+
+index=main source="Sample_tickets.csv" | eventstats count by current_ticket_state 
+
