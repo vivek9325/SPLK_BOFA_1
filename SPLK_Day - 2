@@ -61,3 +61,6 @@ index=main source="power_usage_2016_to_2020.csv" | timechart span=1y  avg("Value
 index=main source="power_usage_2016_to_2020.csv" | timechart span=1y  avg("Value _kWh") as val |  fillnull  | search val!=0 | predict val algorithm=LL
 
 index=main source="weather_2016_2020_daily.csv" | table Temp_avg Dew_avg Date _time | eval date_epoc = strptime(Date, "%Y-%m-%d") | eval _time = date_epoc | timechart span=1mon avg(Temp_avg) as avg_temp, avg(Dew_avg) as avg_dew | predict avg_temp avg_dew algorithm=BiLL
+
+index=main source="weather_2016_2020_daily.csv" | table Temp_avg, Dew_avg, Date, _time | eval date_epoc = strptime(Date, "%Y-%m-%d") | eval _time = date_epoc | timechart span=1mon avg(Temp_avg) as avg_temp, avg(Dew_avg) as avg_dew | predict avg_temp avg_dew algorithm=BiLL future_timespan=30
+
