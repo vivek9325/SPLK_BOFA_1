@@ -68,3 +68,5 @@ index=main source="weather_2016_2020_daily.csv" | table Temp_avg, Dew_avg, Date,
 tstats
 
 | tstats count where index=_internal sourcetype IN (splunkd, splunkd_ui_access) by sourcetype
+
+| tstats count where index=_internal sourcetype IN (splunkd, splunkd_ui_access) by _time span=2d
