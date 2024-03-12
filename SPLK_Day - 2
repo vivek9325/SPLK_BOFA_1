@@ -97,3 +97,4 @@ Left Join -
 
 index=main source="sample_tickets.csv" | table ticket_number, severity, current_ticket_state | join type="left" ticket_number [search index=main_join | table ticket_number, time_taken]
 
+index=main source="sample_tickets.csv" | table ticket_number, severity, current_ticket_state , time_taken | eval time_taken="NULL" | join overwrite=true type="left" ticket_number [search index=main_join | table ticket_number, time_taken]
