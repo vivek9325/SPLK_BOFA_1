@@ -83,3 +83,5 @@ index=main source="Sample_tickets.csv" | stats count by severity | appendcols[se
 
 appendpipe -
 
+index=main source="Sample_tickets.csv" | stats count by current_ticket_state, severity | appendpipe[|stats sum(count) as count by current_ticket_state | eval severity = "Sum By Ticket State"] | sort current_ticket_state
+
