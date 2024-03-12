@@ -138,3 +138,12 @@ eventstats -
 
 index=main source="Sample_tickets.csv" | eventstats count by current_ticket_state 
 
+====================================================================================================
+
+iconify - 
+
+index=main source="sample_tickets.csv" | iconify severity
+
+Highlight - 
+
+index=main source="sample_tickets.csv" | iconify severity | highlight MSTR
