@@ -147,3 +147,10 @@ index=main source="sample_tickets.csv" | iconify severity
 Highlight - 
 
 index=main source="sample_tickets.csv" | iconify severity | highlight MSTR
+
+rangemap - 
+
+index=main source="sample_tickets.csv" | iconify severity | highlight MSTR | rangemap field=date_hour green=1-30 blue=31-40 red=40-60
+
+====================================================================================================
+
