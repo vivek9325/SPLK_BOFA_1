@@ -20,3 +20,9 @@ Regex
 index=main sourcetype=txt | regex _raw = "From:\s+<[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
 
 index=main sourcetype=txt |regex _raw = "From:\s+<[[:alnum:]]+\_[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
+
+XYSeries ----
+
+index=main source="Sample_tickets.csv" | stats count by current_ticket_state, severity | xyseries current_ticket_state severity count
+
+index=main source="Sample_tickets.csv" | stats count by current_ticket_state, severity | xyseries current_ticket_state severity count | untable current_ticket_state severity count
