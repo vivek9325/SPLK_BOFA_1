@@ -48,5 +48,9 @@ index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxs
 
 index=transact sourcetype=access_* | transaction clientip JSESSIONID maxevents=4
 
+====================================================================================================
 
+Predict :-
+
+index=main source="power_usage_2016_to_2020.csv" | timechart span=1mon  avg("Value _kWh") as val | predict val algorithm=LL
 
