@@ -14,3 +14,7 @@ Substitute:-
 EREX
 
 index=main sourcetype=txt | erex email examples="MariaDubois@example.com, lyra@buttercupgames.com"
+
+Regex
+
+index=main sourcetype=txt | regex _raw = "From:\s+<[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
