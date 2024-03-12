@@ -34,3 +34,8 @@ transaction ----
 
 index=transact sourcetype=access_* | transaction JSESSIONID clientip startswith="view" endswith="purchase" | highlight "action"
 
+maxpause - 
+
+index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxpause=3s | highlight "action"
+
+
