@@ -56,3 +56,5 @@ index=main source="power_usage_2016_to_2020.csv" | timechart span=1mon  avg("Val
 
 index=main source="power_usage_2016_to_2020.csv" | timechart span=1mon  avg("Value _kWh") as val | predict val algorithm=LLP5 holdback=5
 
+index=main source="power_usage_2016_to_2020.csv" | timechart span=1y  avg("Value _kWh") as val |  fillnull  | search val!=0
+
