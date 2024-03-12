@@ -38,4 +38,8 @@ maxpause -
 
 index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxpause=3s | highlight "action"
 
+maxspan - 
+
+index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxspan=4s | highlight "action" "POST /cart.do?action"
+
 
