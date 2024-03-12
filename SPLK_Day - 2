@@ -46,5 +46,7 @@ maxevent -
 
 index=transact sourcetype=access_* | transaction action clientip JSESSIONID maxspan=5s maxevents=4 | highlight "action" "POST /cart.do?action"
 
+index=transact sourcetype=access_* | transaction clientip JSESSIONID maxevents=4
+
 
 
