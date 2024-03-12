@@ -18,3 +18,5 @@ index=main sourcetype=txt | erex email examples="MariaDubois@example.com, lyra@b
 Regex
 
 index=main sourcetype=txt | regex _raw = "From:\s+<[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
+
+index=main sourcetype=txt |regex _raw = "From:\s+<[[:alnum:]]+\_[[:alnum:]]+@[[:alnum:]]+\.[[:alpha:]]+>"
