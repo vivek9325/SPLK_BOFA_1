@@ -95,3 +95,5 @@ index=main source="sample_tickets.csv" | table ticket_number, severity, current_
 
 Left Join - 
 
+index=main source="sample_tickets.csv" | table ticket_number, severity, current_ticket_state | join type="left" ticket_number [search index=main_join | table ticket_number, time_taken]
+
