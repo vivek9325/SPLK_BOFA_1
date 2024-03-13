@@ -105,4 +105,14 @@ Push app from deployer ----
    32  cat server.conf
    33  history
 
+========================================================================================================
+
+Add / Remove sh
+
+ 9  ./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://3.12.34.135:8089 -replication_port 9000 -replication_factor 3 -conf_deploy_fetch_url https://3.143.244.241:8089 -secret admin@123 -shcluster_label shcluster1
+   10  ./splunk restart
+   11  ./splunk add shcluster-member -current_member_uri https://3.145.98.196:8089
+   12  ./splunk shclsuter-status
+   13  ./splunk show shcluster-status
+   14  history
 
