@@ -15,7 +15,7 @@ Deployer -
 
 Initialize Deployer ----
 
-local / server.conf
+etc/ local / server.conf
 
 [shclustering]
 pass4SymmKey = admin@123
