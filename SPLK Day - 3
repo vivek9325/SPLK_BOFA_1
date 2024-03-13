@@ -21,5 +21,9 @@ Splunk/ etc/ system /local / server.conf
 pass4SymmKey = admin@123
 shcluster_label = shcluster1
 
+To restart Splunk ----
+
+Splunk/bin
+./splunk restart
 
 
