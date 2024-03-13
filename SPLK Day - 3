@@ -96,3 +96,13 @@ Dummy App -
    39  cd ../..
    40  pwd
 
+Push app from deployer ----
+
+
+
+   30  ./splunk apply shcluster-bundle -target https://13.58.141.228:8089 (any sh uri)
+   31  cd ../etc/system/local/
+   32  cat server.conf
+   33  history
+
+
