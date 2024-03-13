@@ -49,7 +49,6 @@ vi user-seed.conf
 [user_info]
 USERNAME = admin
 PASSWORD = admin@123
-------
 
 
 cd ../../../bin
