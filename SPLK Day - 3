@@ -35,4 +35,25 @@ Splunk/bin
 
 ./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://18.218.120.113:8089  -replication_port 9000 -replication_factor 3 -conf_deploy_fetch_url https://3.143.244.241:8089 -secret admin@123  -shcluster_label  shcluster1
 
+=================================================================================================================================================================================
 
+Reset Password
+
+cd Splunk/etc
+mv passwd passwd.bk
+
+cd system/local
+
+vi user-seed.conf
+
+[user_info]
+USERNAME = admin
+PASSWORD = admin@123
+------
+
+
+cd ../../../bin
+./splunk restart
+
+
+==================================================================================================================================================================================
