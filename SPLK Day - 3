@@ -12,3 +12,14 @@ Deployer -
     9  clear
    10  history
 
+
+Initialize Deployer ----
+
+local / server.conf
+
+[shclustering]
+pass4SymmKey = admin@123
+shcluster_label = shcluster1
+
+
+
