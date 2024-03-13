@@ -67,3 +67,14 @@ Status of Captain ---
 
 ./splunk show shcluster-status
 
+Troubleshooting ----
+
+
+cd splunk/bin
+
+./splunk stop
+
+./splunk clean raft
+
+./splunk start
+
