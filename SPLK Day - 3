@@ -107,7 +107,7 @@ Push app from deployer ----
 
 ========================================================================================================
 
-Add / Remove sh
+Add search head
 
  9  ./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://3.12.34.135:8089 -replication_port 9000 -replication_factor 3 -conf_deploy_fetch_url https://3.143.244.241:8089 -secret admin@123 -shcluster_label shcluster1
    10  ./splunk restart
@@ -116,3 +116,19 @@ Add / Remove sh
    13  ./splunk show shcluster-status
    14  history
 
+============================================================================================================
+Remove SH member
+
+   8  ./splunk remove shcluster-member
+    9  ./splunk show shcluster-status
+   10  ./splunk disable shclsuter-config
+   11  ./splunk disable shcluster-config
+   12  ./splunk restart
+   13  ./splunk clean kvstore --cluster
+   14  clean
+   15  clear
+   16  history
+   17  ./splunk stop
+   18  ./splunk clean kvstore --cluster
+   19  ./splunk clean all
+   20  history
