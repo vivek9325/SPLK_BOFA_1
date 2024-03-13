@@ -27,3 +27,11 @@ Splunk/bin
 ./splunk restart
 
 
+Initialize SH (URL3, URL4 and URL 5)
+
+Splunk/bin
+
+./splunk init shcluster-config -auth <username>:<password> -mgmt_uri <URI>:<management_port> -replication_port <replication_port> -replication_factor <n> -conf_deploy_fetch_url <URL>:<management_port> -secret <security_key> -shcluster_label <label>
+
+
+
