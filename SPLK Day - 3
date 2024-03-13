@@ -33,5 +33,6 @@ Splunk/bin
 
 ./splunk init shcluster-config -auth <username>:<password> -mgmt_uri <URI>:<management_port> -replication_port <replication_port> -replication_factor <n> -conf_deploy_fetch_url <URL>:<management_port> -secret <security_key> -shcluster_label <label>
 
+./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://18.218.120.113:8089  -replication_port 9000 -replication_factor 3 -conf_deploy_fetch_url https://3.143.244.241:8089 -secret admin@123  -shcluster_label  shcluster1
 
 
