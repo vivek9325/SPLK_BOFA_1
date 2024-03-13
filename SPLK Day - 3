@@ -131,3 +131,11 @@ Remove SH member
    18  ./splunk clean kvstore --cluster
    19  ./splunk clean all
    20  history
+
+=================================================================================================
+
+Check the Splunk Process and Kill
+
+ps -ef | grep splunk
+
+kill -9 process_id
