@@ -15,7 +15,7 @@ Deployer -
 
 Initialize Deployer (Only On URL2) ----
 
-Splunk/ etc/ local / server.conf
+Splunk/ etc/ system /local / server.conf
 
 [shclustering]
 pass4SymmKey = admin@123
