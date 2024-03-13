@@ -145,7 +145,7 @@ rm -rf splunk
 
 ======================================================================================================
 
-Auto Replication
+Auto Replication --- server.conf (All SH)
 
 [raft_statemachine]
 disabled = false
