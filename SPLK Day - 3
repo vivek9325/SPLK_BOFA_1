@@ -56,3 +56,10 @@ cd ../../../bin
 
 
 ==================================================================================================================================================================================
+
+Captain Election ---
+
+./splunk bootstrap shcluster-captain -servers_list "<URI>:<management_port>,<URI>:<management_port>,..." -auth <username>:<password>
+
+./splunk bootstrap shcluster-captain -servers_list "https://18.218.120.113:8089,https://3.145.98.196:8089,https://13.58.141.228:8089" -auth admin:admin@123
+
