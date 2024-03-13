@@ -149,7 +149,7 @@ Auto Replication --- server.conf (All SH)
 
 [raft_statemachine]
 disabled = false
-replicate_search_peer = true
+replicate_search_peers = true
 
 
 ======================================================================================================
