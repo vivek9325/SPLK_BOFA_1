@@ -78,3 +78,21 @@ cd splunk/bin
 
 ./splunk start
 
+=-===========================================================================================
+
+Dummy App - 
+
+ cd splunk/etc/shcluster/
+   29  ll
+   30  cd apps/
+   31  ll
+   32  mkdir dummy_app
+   33  ll
+   34  cd dummy_app
+   35  mkdir local
+   36  ll
+   37  cd local/
+   38  vi test.txt
+   39  cd ../..
+   40  pwd
+
