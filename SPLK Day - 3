@@ -1,1 +1,14 @@
-S
+Deployer - 
+
+
+    1   wget -O splunk-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.2.0.1/linux/splunk-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz"
+    2  pwd
+    3  clear
+    4  ll
+    5  tar xvzf splunk-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz
+    6  ll
+    7  cd splunk/bin/
+    8  ./splunk start
+    9  clear
+   10  history
+
