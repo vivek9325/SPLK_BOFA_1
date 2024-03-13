@@ -13,9 +13,9 @@ Deployer -
    10  history
 
 
-Initialize Deployer ----
+Initialize Deployer (Only On URL2) ----
 
-etc/ local / server.conf
+Splunk/ etc/ local / server.conf
 
 [shclustering]
 pass4SymmKey = admin@123
