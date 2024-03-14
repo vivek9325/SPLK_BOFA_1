@@ -97,3 +97,8 @@ index="main" sourcetype="kv_log" | multikv
 index="main" sourcetype="kv_log" | multikv noheader=t
 
 =====================================================================================================
+
+Scrub Command -
+
+source="us-500.csv" host="ip-172-31-28-55.us-east-2.compute.internal" index="main" sourcetype="csv" | table * | scrub
+
