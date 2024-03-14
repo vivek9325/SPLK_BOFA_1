@@ -94,3 +94,6 @@ index="main" sourcetype="kv_log" | multikv forceheader=2
 
 index="main" sourcetype="kv_log" | multikv
 
+index="main" sourcetype="kv_log" | multikv noheader=t
+
+=====================================================================================================
