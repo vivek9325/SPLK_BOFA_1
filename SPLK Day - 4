@@ -1,1 +1,15 @@
 
+Create custom index 
+
+Directory - 
+/home/ec2-user/splunk/etc/master-apps/_cluster/local
+
+
+
+[ec2-user@ip-172-31-22-153 local]$ cat indexes.conf
+[snow]
+homePath = $SPLUNK_DB/snow/db
+coldPath = $SPLUNK_DB/snow/colddb
+thawedPath = $SPLUNK_DB/snow/thaweddb
+repFactor = auto
+[ec2-user@ip-172-31-
