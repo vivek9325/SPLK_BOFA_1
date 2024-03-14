@@ -13,3 +13,13 @@ coldPath = $SPLUNK_DB/snow/colddb
 thawedPath = $SPLUNK_DB/snow/thaweddb
 repFactor = auto
 [ec2-user@ip-172-31-
+
+=====================================================================================================
+
+Connect SHC Cluster with Indexer Cluster
+
+   19  ./splunk edit cluster-config -mode searchhead -master_uri https://18.221.54.151:8089 -secret admin@123
+
+./splunk edit cluster-config -mode searchhead -master_uri https://Cluster_Master_URI:8089 -secret admin@123
+
+Run the above CLI on all the 3 Search heads
