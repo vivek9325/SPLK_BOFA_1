@@ -58,7 +58,7 @@ HF Config :-
 
 splunk/etc/system/local
 
-outputs.conf   [File Name]
+vi outputs.conf   [File Name]
 
 
 [indexer_discovery:demo-id]
