@@ -46,7 +46,7 @@ Indexer Discovery
 Add below stanza in Cluster Master [splunk/etc/system/local]
 
 [indexer_discovery]
-pass4SymmKey = $7$JLKQq45z+/oWcFnvoSGdLpGYLplglNfpkRWET8yULvpH/L3vBPrKf+Q=
+pass4SymmKey = $7$JLKQq45z+/oWcFnvoSGdLpGYLplglNfpkRWET8yULvpH/L3vBPrKf+Q= [secret key - admin@123]
 polling_rate = 10
 indexerWeightByDiskCapacity = true
 
