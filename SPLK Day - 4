@@ -54,4 +54,28 @@ indexerWeightByDiskCapacity = true
 restart splunk service - splunk/bin ---- ./splunk restart
 
 
+HF Config :- 
 
+splunk/etc/system/local
+
+outputs.conf   [File Name]
+
+
+[indexer_discovery:demo-id]
+pass4SymmKey = $7$p4tfOr6U5kiH1SS8x09An3s6Tw2m9x1dPP3R8JG24CXEVR8LiY8hMeM=       [[Secret key / pass4SymmKey we have set at Cluster_Master end]]
+master_uri = https://18.221.54.151:8089  [[Cluster Master IP Address and Management ]]
+
+
+[tcpout:demo-peers]
+indexerDiscovery = demo-id
+useACK = true
+
+
+[tcpout]
+defaultGroup = demo-peers
+
+
+Splunk restart ---- splunk/bin ---> ./splunk restart
+
+
+==============================================================================================================================================================================
