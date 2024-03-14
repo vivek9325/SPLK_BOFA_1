@@ -23,3 +23,17 @@ Connect SHC Cluster with Indexer Cluster
 ./splunk edit cluster-config -mode searchhead -master_uri https://Cluster_Master_URI:8089 -secret admin@123
 
 Run the above CLI on all the 3 Search heads
+
+==================================================================================================
+
+Send data from HF to Indexer
+
+config on HF end
+
+
+[monitor://var/log]
+index = snow
+disabled = 0
+
+
+Path - splunk/etc/system/local
