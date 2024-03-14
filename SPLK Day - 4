@@ -30,6 +30,7 @@ Send data from HF to Indexer
 
 config on HF end
 
+inputs.conf
 
 [monitor://var/log]
 index = snow
