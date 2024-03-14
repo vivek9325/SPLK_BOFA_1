@@ -86,3 +86,11 @@ ForEach Command -
 
 | makeresults 1 | eval test1=100, test2=200, test3=300 | foreach test* [eval <<FIELD>>=<<FIELD>>/60]
 
+=============================================================================================
+
+multikv command - 
+
+index="main" sourcetype="kv_log" | multikv forceheader=2
+
+index="main" sourcetype="kv_log" | multikv
+
