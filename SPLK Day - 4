@@ -43,11 +43,14 @@ Path - splunk/etc/system/local
 
 Indexer Discovery
 
-Add below stanza in Cluster Master [splunk/etc/system/local]
+Add below stanza in Cluster Master [splunk/etc/system/local/server.conf]
 
 [indexer_discovery]
 pass4SymmKey = $7$JLKQq45z+/oWcFnvoSGdLpGYLplglNfpkRWET8yULvpH/L3vBPrKf+Q= [secret key - admin@123]
 polling_rate = 10
 indexerWeightByDiskCapacity = true
+
+restart splunk service - splunk/bin ---- ./splunk restart
+
 
 
