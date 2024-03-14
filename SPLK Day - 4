@@ -79,3 +79,8 @@ Splunk restart ---- splunk/bin ---> ./splunk restart
 
 
 ==============================================================================================================================================================================
+
+ForEach Command - 
+
+| makeresults 1 | eval total = 0 | eval test1 = 1, test2=2, test3=3 | foreach test* [eval total=total + <<FIELD>>]
+
