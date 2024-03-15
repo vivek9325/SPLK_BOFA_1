@@ -7,3 +7,5 @@ Regular Expression - https://www.debuggex.com/cheatsheet/regex/pcre
 https://regex101.com/
 
 Splunk Enterprise -  wget -O splunk-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.2.0.1/linux/splunk-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz"
+
+Splunk UF - wget -O splunkforwarder-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.2.0.1/linux/splunkforwarder-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz"
