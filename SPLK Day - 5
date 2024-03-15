@@ -97,17 +97,30 @@ Change and condition tag ---
         <condition value="both">
           
           <set token="show_both_score_panel"></set>
+          <unset token="show_gender"></unset>
+          <unset token="show_ethinicity"></unset>
           
         </condition>
         
         <condition label="Gender">
           
           <set token="show_gender"></set>
+          <unset token="show_both_score_panel"></unset>
+          <unset token="show_ethinicity"></unset>
           
         </condition>
         
         <condition match="$value$==&quot;ethinicity&quot;">
           
+          <set token="show_ethinicity"></set>
+          <unset token="show_gender"></unset>
+          <unset token="show_both_score_panel"></unset>
+          
+        </condition>
+        
+        <condition>
+          <set token="show_ethinicity"></set>
+          <set token="show_gender"></set>
           <set token="show_both_score_panel"></set>
           
         </condition>
