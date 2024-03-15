@@ -56,6 +56,17 @@ Below item, need to run on Universal Forwarder (UF)
    69  histor
    70  history
 
+   ===========================================================================================================================================================================
+Reload serverclass 
+
+   ./splunk reload deploy-server -serverclass demo_sc  [demo_sc --- it's the serverclass name]
+
+
+./splunk reload deploy-server   [[it will reload all the serverclass available in deployment server]]
+
+
+
+
 
 
 
