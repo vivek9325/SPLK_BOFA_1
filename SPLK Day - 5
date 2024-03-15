@@ -74,6 +74,20 @@ index=main source="StudentsPerformance.csv" gender=male | stats count
 
 index=main source="StudentsPerformance.csv" gender=female | stats count
 
+Avg. Score by gender and ethnicity:-
+
+index=main source="StudentsPerformance.csv" | stats avg("math score") as avg_math_score, avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score by race_ethnicity, gender
+
+
+Avg. Score By Gender:-
+
+index=main source="StudentsPerformance.csv" | stats avg("math score") as avg_math_score, avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score by gender
+
+
+Avg Score By ethnicity:-
+
+index=main source="StudentsPerformance.csv" | stats avg("math score") as avg_math_score, avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score by race_ethnicity
+
 
 
 
