@@ -1,1 +1,26 @@
+Unsinstall Splunk Enterprise and Install Splunk Universal Forwarder
+
+ 62  cd splunk/bin/
+   63  ./splunk stop
+   64  cd ..
+   65  ll
+   66  cd ..
+   67  ll
+   68  rm -rf splunk
+   69  ll
+   70  rm -rf splunk-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz
+   71  wget -O splunkforwarder-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.2.0.1/linux/splunkforwarder-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz"
+   72  ll
+   73  ps -ef | grep splunk
+   74  tar xvzf splunkforwarder-9.2.0.1-d8ae995bf219-Linux-x86_64.tgz
+   75  ll
+   76  cd splunkforwarder/bin/
+   77  ./splunk start
+   78  ./splunk status
+   79  ll
+   80  cd ../..
+   81  ll
+   82  clear
+   83  ll
+   84  history
 
