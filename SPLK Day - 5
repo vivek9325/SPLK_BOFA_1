@@ -89,6 +89,33 @@ Avg Score By ethnicity:-
 index=main source="StudentsPerformance.csv" | stats avg("math score") as avg_math_score, avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score by race_ethnicity
 
 
+Change and condition tag ---
+
+
+      <change>
+        
+        <condition value="both">
+          
+          <set token="show_both_score_panel"></set>
+          
+        </condition>
+        
+        <condition label="Gender">
+          
+          <set token="show_gender"></set>
+          
+        </condition>
+        
+        <condition match="$value$==&quot;ethinicity&quot;">
+          
+          <set token="show_both_score_panel"></set>
+          
+        </condition>
+        
+        
+      </change>
+      
+      
 
 
 
