@@ -1,0 +1,251 @@
+<form version="1.1" theme="dark" script="multiselect.js">
+  <label>Student Score</label>
+  <fieldset submitButton="false">
+    <input type="dropdown" token="score_by" searchWhenChanged="true">
+      <label>Score By</label>
+      <choice value="*">All</choice>
+      <choice value="both">Both</choice>
+      <choice value="gender">Gender</choice>
+      <choice value="ethinicity">Ethinicity</choice>
+      <default>*</default>
+      <initialValue>*</initialValue>
+      <change>
+        <condition value="both">
+          <set token="show_both_score_panel"></set>
+          <unset token="show_gender"></unset>
+          <unset token="show_ethinicity"></unset>
+        </condition>
+        <condition label="Gender">
+          <set token="show_gender"></set>
+          <unset token="show_both_score_panel"></unset>
+          <unset token="show_ethinicity"></unset>
+        </condition>
+        <condition match="$value$==&quot;ethinicity&quot;">
+          <set token="show_ethinicity"></set>
+          <unset token="show_gender"></unset>
+          <unset token="show_both_score_panel"></unset>
+        </condition>
+        <condition>
+          <set token="show_ethinicity"></set>
+          <set token="show_gender"></set>
+          <set token="show_both_score_panel"></set>
+        </condition>
+      </change>
+    </input>
+    <input id="mult1" type="multiselect" token="gender" searchWhenChanged="true">
+      <label>Gender</label>
+      <choice value="*">All</choice>
+      <fieldForLabel>gender</fieldForLabel>
+      <fieldForValue>gender</fieldForValue>
+      <search>
+        <query>index=main source="StudentsPerformance.csv" | stats count by gender</query>
+        <earliest>0</earliest>
+        <latest></latest>
+      </search>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Count of Male Students</title>
+      <single>
+        <search>
+          <query>index=main source="StudentsPerformance.csv" gender=male | stats count</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x53a051","0x0877a6","0xd41f1f","0xf1813f","0xdc4e41"]</option>
+        <option name="rangeValues">[0,300,700,10000]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Count by Female</title>
+      <single>
+        <search>
+          <query>index=main source="StudentsPerformance.csv" gender=female | stats count</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x53a051","0x0877a6","0xd41f1f","0xf1813f","0xdc4e41"]</option>
+        <option name="rangeValues">[0,300,700,10000]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
+  </row>
+  <row depends="$show_gender$">
+    <panel>
+      <title>Avg Score By Gender</title>
+      <input type="radio" token="field1" searchWhenChanged="true">
+        <label></label>
+        <choice value="all">All</choice>
+        <choice value="math">Math</choice>
+        <choice value="reading">Reading</choice>
+        <choice value="writing">Writing</choice>
+        <change>
+          <condition value="math">
+            <set token="search_string">stats avg("math score") as avg_math_score by gender</set>
+          </condition>
+          <condition value="reading">
+            <set token="search_string">stats avg("reading score") as avg_reading_score by gender</set>
+          </condition>
+          <condition value="writing">
+            <set token="search_string">stats avg("writing score") as avg_writing_score by gender</set>
+          </condition>
+          <condition value="all">
+            <set token="search_string">stats avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score, avg("math score") as avg_math_score  by gender</set>
+          </condition>
+        </change>
+      </input>
+      <chart>
+        <search>
+          <query>index=main source="StudentsPerformance.csv" | $search_string$  </query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.abbreviation">none</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.abbreviation">none</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.abbreviation">none</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.mode">standard</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.lineWidth">2</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </chart>
+    </panel>
+  </row>
+  <row depends="$show_ethinicity$">
+    <panel>
+      <title>Avg. Score By Ethinicity</title>
+      <chart>
+        <search>
+          <query>index=main source="StudentsPerformance.csv" | stats avg("math score") as avg_math_score, avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score by race_ethnicity</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.abbreviation">none</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.abbreviation">none</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.abbreviation">none</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.mode">standard</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.lineWidth">2</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </chart>
+    </panel>
+  </row>
+  <row depends="$show_both_score_panel$">
+    <panel>
+      <title>Avg. Score by Both Gender and Ethnicity</title>
+      <chart>
+        <search>
+          <query>index=main source="StudentsPerformance.csv" | stats avg("math score") as avg_math_score, avg("reading score") as avg_reading_score, avg("writing score") as avg_writing_score by race_ethnicity, gender</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">collapsed</option>
+        <option name="charting.axisTitleY.visibility">collapsed</option>
+        <option name="charting.axisTitleY2.visibility">collapsed</option>
+        <option name="charting.axisX.abbreviation">none</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.abbreviation">none</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.abbreviation">none</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.mode">standard</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="charting.lineWidth">2</option>
+        <option name="trellis.enabled">1</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </chart>
+    </panel>
+  </row>
+</form>
