@@ -43,8 +43,10 @@ Uninstall Splunk Enterprise and Install Splunk Universal Forwarder
 
 Connect UF with Deployment Server
 
+Below item, need to run on Universal Forwarder (UF)
+
 61  cd splunkforwarder/bin/
-   62  ./splunk set deploy-poll https://3.143.244.241:8089
+   62  ./splunk set deploy-poll https://3.143.244.241:8089     [Deployment Server IP Address]
    63  ll
    64  clear
    65  ./splunk restart
