@@ -39,6 +39,22 @@ Uninstall Splunk Enterprise and Install Splunk Universal Forwarder
    71  vi test.txt
    72  pwd
 
+===============================================================================================================================================================================
+
+Connect UF with Deployment Server
+
+61  cd splunkforwarder/bin/
+   62  ./splunk set deploy-poll https://3.143.244.241:8089
+   63  ll
+   64  clear
+   65  ./splunk restart
+   66  cd ../etc/system/local/
+   67  ll
+   68  cat deploymentclient.conf
+   69  histor
+   70  history
+
+
 
 
 
