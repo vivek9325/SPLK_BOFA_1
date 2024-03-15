@@ -1,4 +1,4 @@
-Unsinstall Splunk Enterprise and Install Splunk Universal Forwarder
+Uninstall Splunk Enterprise and Install Splunk Universal Forwarder
 
  62  cd splunk/bin/
    63  ./splunk stop
