@@ -24,3 +24,21 @@ Uninstall Splunk Enterprise and Install Splunk Universal Forwarder
    83  ll
    84  history
 
+   ============================================================================================================================================================================
+
+   Initialise Deployment Server:- 
+
+    cd splunk/etc/deployment-apps/
+   64  ll
+   65  mkdir dummy_app
+   66  cd dummy_app/
+   67  ll
+   68  mkdir local
+   69  cd local/
+   70  ll
+   71  vi test.txt
+   72  pwd
+
+
+
+
